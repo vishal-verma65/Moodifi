@@ -1,6 +1,8 @@
 const userModel = require("../models/user.model")
+const blackListModel = require("../models/blacklist.model")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+const blacklistModel = require("../models/blacklist.model")
 
 const registerUser = async(req, res)=>{
     const {username, email, password} = req.body
@@ -51,7 +53,7 @@ const loginUser = async(req, res)=>{
             {email},
             {username}
         ]
-    })
+    }).select("+password")
     if(!user){
         return res.status(400).json({
             message:"Invalid credentials."
@@ -83,7 +85,32 @@ const loginUser = async(req, res)=>{
     })
 }
 
+const getMe = async(req, res)=>{
+    const userData = await userModel.findById(req.user.id)
+
+    res.status(200).json({
+        message:"User details fetched successfully.",
+        userData
+    })
+}
+
+const logoutUser = async(req, res)=>{
+    const token = req.cookies.token
+
+    res.clearCookie("token")
+
+    await blacklistModel.create({
+        token
+    })
+
+    res.status(200).json({
+        message:"User logout successfully."
+    })
+}
+
 module.exports = {
     registerUser,
     loginUser,
+    getMe,
+    logoutUser,
 }
