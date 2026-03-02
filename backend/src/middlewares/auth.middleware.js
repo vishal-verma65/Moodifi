@@ -1,5 +1,6 @@
 const blacklistModel = require("../models/blacklist.model")
 const userModel = require("../models/user.model")
+const redis = require("../config/cache")
 const jwt = require("jsonwebtoken")
 
 const authUser = async(req, res, next)=>{
@@ -10,9 +11,8 @@ const authUser = async(req, res, next)=>{
         })
     }
 
-    const isTokenBlacklisted = await blacklistModel.findOne({
-        token
-    })
+    //using redis to check if token is blacklisted or not, if blacklisted then we can directly return without querying the database
+    const isTokenBlacklisted = await redis.get(token)
     if(isTokenBlacklisted){
         return res.status(401).json({
             message:"Invalid token."

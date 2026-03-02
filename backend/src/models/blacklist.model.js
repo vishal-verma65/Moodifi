@@ -1,3 +1,4 @@
+//created for blacklisting tokens using mongo db, but now using redis for this
 const mongoose = require("mongoose")
 
 const blacklistSchema = new mongoose.Schema({
