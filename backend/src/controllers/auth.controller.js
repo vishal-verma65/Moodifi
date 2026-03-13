@@ -86,11 +86,11 @@ const loginUser = async(req, res)=>{
 }
 
 const getMe = async(req, res)=>{
-    const userData = await userModel.findById(req.user.id)
+    const user = await userModel.findById(req.user.id)
 
     res.status(200).json({
         message:"User details fetched successfully.",
-        userData
+        user
     })
 }
 

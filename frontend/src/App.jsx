@@ -1,9 +1,12 @@
-import React from 'react'
-import FaceExpression from './features/expression/components/FaceExpression';
+import router from "./App.routes"
+import { RouterProvider } from "react-router-dom"
+import { AuthContextProvider } from "./features/auth/Auth.context"
 
 const App = () => {
   return (
-   <FaceExpression />
+    <AuthContextProvider>
+      <RouterProvider router={router} />
+    </AuthContextProvider>
   )
 }
 
