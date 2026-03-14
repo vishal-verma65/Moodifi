@@ -1,0 +1,130 @@
+.home-page {
+  min-height: 100vh;
+  padding-inline: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.home-wrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: 16px;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.home-header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.45rem;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+}
+
+.home-header p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  opacity: 0.95;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+  gap: 20px;
+}
+
+.card {
+  background: #ffffff;
+  color: #232323;
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+  padding-inline: 18px;
+  padding-block: 10px;
+}
+
+.card h2 {
+  margin: 0 0 12px;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.expression-card,
+.player-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.expression-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.expression-video {
+  width: 100%;
+  max-width: 440px;
+  border-radius: 12px;
+  border: 2px solid #667eea;
+}
+
+.expression-page h2 {
+  font-weight: 600;
+  color: #444;
+}
+
+.expression-page h2 span {
+  color: #667eea;
+}
+
+.expression-page button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.expression-page button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(102, 126, 234, 0.5);
+}
+
+@media (max-width: 1024px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-wrapper {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-page {
+    padding: 12px;
+  }
+
+  .card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .home-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .home-header p {
+    font-size: 1rem;
+  }
+
+  .expression-video {
+    max-width: 100%;
+  }
+}

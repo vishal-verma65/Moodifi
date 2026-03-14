@@ -1,0 +1,144 @@
+.player-page {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.player-card {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  width: min(100%, 770px);
+  padding: 24px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.song-info {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.song-art {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #d0d0d0;
+}
+
+.song-info h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  color: #333;
+}
+
+.song-info p {
+  margin: 4px 0;
+  color: #555;
+}
+
+.song-url {
+  font-size: 0.75rem;
+  color: #777;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 420px;
+}
+
+.controls,
+.speed-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-row input[type="range"] {
+  flex: 1;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  outline: none;
+}
+
+.progress-row input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #667eea;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(102, 126, 234, 0.8);
+}
+
+.mainButton,
+.smallButton {
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mainButton {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+}
+
+.smallButton {
+  font-size: 0.92rem;
+  background: #f4f5ff;
+  color: #333;
+  padding: 8px 12px;
+}
+
+.mainButton:hover,
+.smallButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 11px 22px rgba(102, 126, 234, 0.3);
+}
+
+.speed-controls span,
+.progress-row span {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+@media (max-width: 780px) {
+  .player-card {
+    padding: 18px;
+  }
+
+  .song-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .song-art {
+    width: 100px;
+    height: 100px;
+  }
+
+  .controls,
+  .speed-controls {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+}

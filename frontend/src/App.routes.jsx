@@ -3,6 +3,7 @@ import Register from "./features/auth/pages/Register"
 import Login from "./features/auth/pages/Login"
 import "./features/shared/global.scss"
 import Protected from "./features/auth/components/Protected"
+import Home from "./features/home/pages/Home"
 
 const router = createBrowserRouter([
     {
@@ -11,7 +12,7 @@ const router = createBrowserRouter([
     },
     {
         path:"/home",
-        element: <Protected><h1>Home</h1></Protected>
+        element: <Protected><Home /></Protected>
     },    
     {
         path:"/register",
